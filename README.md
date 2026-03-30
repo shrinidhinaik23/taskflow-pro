@@ -197,13 +197,6 @@ All APIs tested using Postman:
 - RBAC validation
 - CRUD operations
 
----
-
-## 📸 Screenshots
-
-![Login](./assets/login.png)  
-![Dashboard](./assets/dashboard.png)  
-![Tasks](./assets/tasks.png)  
 
 ---
 
