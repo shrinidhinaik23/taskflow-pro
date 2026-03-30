@@ -1,75 +1,91 @@
-# 🚀 TaskFlow Pro – Scalable Task Management System
+# 🚀 TaskFlow Pro — Full Stack Task Management System
 
-## 📌 Overview
+A scalable full-stack task management application built with a **modern MERN architecture**, featuring secure authentication, role-based access control, and optimized API performance.
 
-**TaskFlow Pro** is a full-stack task management platform designed with scalability, security, and clean architecture principles.
-It demonstrates production-level backend design using REST APIs, JWT authentication, and role-based access control, along with a modern React-based frontend for seamless interaction.
+Designed to demonstrate **clean backend architecture, modular frontend structure, and real-world engineering practices**.
 
 ---
 
-## 🔥 Key Features
+## 📸 Preview
 
-### 🔐 Authentication & Authorization
+![App Screenshot](./frontend/public/screenshot.png)
 
-* Secure user registration & login
-* Password hashing using bcrypt
+---
+
+## 🌐 Live Demo
+
+* 🔗 Frontend: (add after deployment)
+* 🔗 Backend API: (optional)
+
+---
+
+## 📌 Key Features
+
+### 🔐 Authentication & Security
+
 * JWT-based authentication
-* Role-based access control (User / Admin)
+* Password hashing using bcrypt
+* Protected routes using middleware
+* Rate limiting for API protection
 
 ---
 
-### 📋 Task Management (CRUD)
+### 📋 Task Management
 
-* Create, update, delete, and fetch tasks
-* Task filtering (status, search, pagination)
-* Sorting (latest, oldest)
-* Priority & status management
+* Create, update, and delete tasks
+* Task filtering and sorting
+* Pagination support for performance
+* User-specific task access control
 
 ---
 
-### ⚙️ Backend Architecture
+### 🧠 Backend Architecture
 
-* Modular MVC structure
-* API versioning (`/api/v1`)
+* Modular folder structure (MVC-inspired)
+* Middleware-based validation
 * Centralized error handling
-* Request validation middleware
-* Secure route protection
+* Logging using Morgan/Winston
 
 ---
 
-### 💻 Frontend (React)
+### ⚛️ Frontend Features
 
-* Login & registration UI
-* Protected dashboard (JWT-based)
-* Task creation & listing
-* API integration with Axios
-* Real-time error/success feedback
-
----
-
-### 🛡️ Security Practices
-
-* JWT token validation
-* Environment variable protection
-* Input validation & sanitization
-* Role-based middleware authorization
+* React (Vite) based UI
+* Context API for global state
+* API service abstraction
+* Component-based architecture
 
 ---
 
-### 📈 Scalability Design
+## 🏗️ Project Structure
 
-* Clean folder structure for easy scaling
-* Middleware-based architecture
-* Ready for:
+```bash
+backend/
+├── src/
+│   ├── config/
+│   ├── controllers/
+│   ├── models/
+│   ├── routes/
+│   ├── middlewares/
+│   ├── utils/
+│   ├── app.js
+│   └── server.js
 
-  * Microservices migration
-  * Redis caching
-  * Load balancing
-  * Docker deployment
+frontend/
+├── public/
+├── src/
+│   ├── assets/
+│   ├── components/
+│   ├── context/
+│   ├── pages/
+│   ├── services/
+│   ├── App.jsx
+│   └── main.jsx
+```
 
 ---
 
-## 🧱 Tech Stack
+## ⚙️ Tech Stack
 
 ### Backend
 
@@ -77,53 +93,24 @@ It demonstrates production-level backend design using REST APIs, JWT authenticat
 * Express.js
 * MongoDB (Mongoose)
 * JWT Authentication
-* Bcrypt
+* Express Validator
+* Express Rate Limit
 
 ### Frontend
 
-* React.js (Vite)
-* Axios
+* React (Vite)
 * Context API
+* Axios
 
 ---
 
-## 📂 Project Structure
-
-```
-TaskFlowPro/
-│
-├── backend/
-│   ├── src/
-│   │   ├── config/
-│   │   ├── controllers/
-│   │   ├── middlewares/
-│   │   ├── models/
-│   │   ├── routes/
-│   │   ├── utils/
-│   │   ├── app.js
-│   │   └── server.js
-│   └── .env
-│
-├── frontend/
-│   ├── src/
-│   │   ├── components/
-│   │   ├── pages/
-│   │   ├── context/
-│   │   ├── services/
-│   │   └── App.jsx
-│
-└── README.md
-```
-
----
-
-## ⚙️ Setup Instructions
+## 🔧 Setup Instructions
 
 ### 1️⃣ Clone Repository
 
 ```bash
-git clone https://github.com/shrinidhinaik23/faskflow-pro.git
-cd TaskFlow-Pro
+git clone https://github.com/shrinidhinaik23/taskflow-pro.git
+cd taskflow-pro
 ```
 
 ---
@@ -135,14 +122,12 @@ cd backend
 npm install
 ```
 
-Create `.env` file:
+Create a `.env` file inside backend:
 
-```
+```env
 PORT=5000
 MONGO_URI=your_mongodb_url
-JWT_SECRET=your_secret_key
-JWT_EXPIRES_IN=7d
-NODE_ENV=development
+JWT_SECRET=your_secret
 ```
 
 Run backend:
@@ -163,49 +148,37 @@ npm run dev
 
 ---
 
-## 🔗 API Endpoints
+## 📡 Sample API Endpoints
 
-### Auth
-
-* `POST /api/v1/auth/register`
-* `POST /api/v1/auth/login`
-
-### Tasks
-
-* `GET /api/v1/tasks`
-* `POST /api/v1/tasks`
-* `PUT /api/v1/tasks/:id`
-* `DELETE /api/v1/tasks/:id`
+| Method | Endpoint           | Description   |
+| ------ | ------------------ | ------------- |
+| POST   | /api/auth/register | Register user |
+| POST   | /api/auth/login    | Login user    |
+| GET    | /api/tasks         | Get all tasks |
+| POST   | /api/tasks         | Create a task |
 
 ---
 
-## 📬 API Testing
+## 🧪 Future Improvements
 
-* Postman Collection supported
-* Swagger (optional integration)
-
----
-
-## 🧠 Scalability Notes
-
-* Can be extended into microservices (Auth / Task Service separation)
-* Redis caching can be added for frequently accessed data
-* Load balancing using NGINX
-* Dockerization for container-based deployment
+* Add unit and integration testing
+* Dockerize the application
+* CI/CD pipeline setup
+* Real-time updates using WebSockets
 
 ---
 
-## 🏆 Highlights
+## 📈 Key Learnings
 
-* Production-level backend structure
-* Secure authentication system
-* Clean and scalable architecture
-* Full-stack integration
+* Built a scalable backend structure
+* Implemented secure authentication system
+* Designed modular frontend architecture
+* Improved performance using pagination and filtering
 
 ---
 
 ## 👨‍💻 Author
 
-**Shrinidhi Manjunath Naik**
+**Shrinidhi Naik**
 
 * GitHub: https://github.com/shrinidhinaik23
