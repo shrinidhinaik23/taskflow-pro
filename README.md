@@ -1,184 +1,233 @@
-# 🚀 TaskFlow Pro — Full Stack Task Management System
+![Node.js](https://img.shields.io/badge/Node.js-Backend-green)
+![React](https://img.shields.io/badge/React-Frontend-blue)
+![MongoDB](https://img.shields.io/badge/MongoDB-Database-green)
 
-A scalable full-stack task management application built with a **modern MERN architecture**, featuring secure authentication, role-based access control, and optimized API performance.
+# 🚀 TaskFlow Pro — Scalable Task Management System with Secure Authentication & RBAC
 
-Designed to demonstrate **clean backend architecture, modular frontend structure, and real-world engineering practices**.
+A production-inspired full-stack application demonstrating **secure backend engineering, role-based access control (RBAC), and scalable API architecture**, along with a simple frontend for API interaction.
 
----
-
-## 📸 Preview
-
-![App Screenshot](./frontend/public/screenshot.png)
+> This project simulates how real-world backend systems handle authentication, authorization, and structured data workflows.
 
 ---
 
-## 🌐 Live Demo
+## 🧠 Overview
 
-* 🔗 Frontend: (add after deployment)
-* 🔗 Backend API: (optional)
+TaskFlow Pro goes beyond basic CRUD applications by implementing:
+
+- 🔐 Secure authentication using JWT
+- 🧑‍💼 Role-based authorization (User vs Admin)
+- ⚙️ Modular and scalable backend structure
+- 📡 Versioned REST APIs (`/api/v1`)
+- 🛡️ Input validation & centralized error handling
+- 🌐 Full-stack integration with protected frontend routes
 
 ---
 
-## 📌 Key Features
+## ✨ Key Features
 
 ### 🔐 Authentication & Security
-
-* JWT-based authentication
-* Password hashing using bcrypt
-* Protected routes using middleware
-* Rate limiting for API protection
-
----
-
-### 📋 Task Management
-
-* Create, update, and delete tasks
-* Task filtering and sorting
-* Pagination support for performance
-* User-specific task access control
+- User registration & login
+- Password hashing using **bcrypt**
+- JWT-based authentication & session management
+- Protected routes using middleware
+- Secure headers using **helmet**
 
 ---
 
-### 🧠 Backend Architecture
-
-* Modular folder structure (MVC-inspired)
-* Middleware-based validation
-* Centralized error handling
-* Logging using Morgan/Winston
-
----
-
-### ⚛️ Frontend Features
-
-* React (Vite) based UI
-* Context API for global state
-* API service abstraction
-* Component-based architecture
+### 🧑‍💼 Role-Based Access Control (RBAC)
+- Roles: `user` and `admin`
+- Users → manage only their own tasks
+- Admin → access all users’ tasks
+- Middleware-driven authorization
 
 ---
 
-## 🏗️ Project Structure
-
-```bash
-backend/
-├── src/
-│   ├── config/
-│   ├── controllers/
-│   ├── models/
-│   ├── routes/
-│   ├── middlewares/
-│   ├── utils/
-│   ├── app.js
-│   └── server.js
-
-frontend/
-├── public/
-├── src/
-│   ├── assets/
-│   ├── components/
-│   ├── context/
-│   ├── pages/
-│   ├── services/
-│   ├── App.jsx
-│   └── main.jsx
-```
+### 📦 Task Management
+- Create, read, update, delete tasks
+- Task status:
+  - `pending`
+  - `in-progress`
+  - `completed`
+- Ownership-based access control
 
 ---
 
-## ⚙️ Tech Stack
+### ⚙️ Backend Engineering Practices
+- RESTful API design
+- API versioning (`/api/v1/...`)
+- Clean folder structure (MVC-inspired)
+- Centralized error handling
+- Input validation using **express-validator**
+- Logging with **morgan**
+
+---
+
+### 🌐 Frontend (React)
+- Register & login UI
+- JWT storage and reuse
+- Protected dashboard
+- CRUD operations via API
+- API response handling
+
+---
+
+## 🏗️ Tech Stack
 
 ### Backend
-
-* Node.js
-* Express.js
-* MongoDB (Mongoose)
-* JWT Authentication
-* Express Validator
-* Express Rate Limit
+- Node.js
+- Express.js
+- MongoDB + Mongoose
+- JWT
+- bcryptjs
 
 ### Frontend
+- React.js
+- Axios
+- React Router
 
-* React (Vite)
-* Context API
-* Axios
+### Tools
+- Postman
+- Git & GitHub
 
 ---
 
-## 🔧 Setup Instructions
+## 📂 Project Structure
 
-### 1️⃣ Clone Repository
+taskflow-pro/
+├── backend/
+│   ├── src/
+│   │   ├── config/
+│   │   ├── controllers/
+│   │   ├── middlewares/
+│   │   ├── models/
+│   │   ├── routes/
+│   │   ├── utils/
+│   │   ├── app.js
+│   │   └── server.js
+│   ├── .env
+│   ├── package.json
+│
+├── frontend/
+│   ├── src/
+│   │   ├── assets/
+│   │   ├── components/
+│   │   ├── context/
+│   │   ├── pages/
+│   │   ├── services/
+│   │   ├── App.jsx
+│   │   └── main.jsx
+│
+└── README.md
 
-```bash
-git clone https://github.com/shrinidhinaik23/taskflow-pro.git
+---
+
+## ⚡ Getting Started
+
+### 1. Clone Repository
+
+git clone https://github.com/shrinidhinaik23/taskflow-pro.git  
 cd taskflow-pro
-```
 
 ---
 
-### 2️⃣ Backend Setup
+### 2. Backend Setup
 
-```bash
-cd backend
-npm install
-```
+cd backend  
+npm install  
 
-Create a `.env` file inside backend:
+Create `.env` file:
 
-```env
-PORT=5000
-MONGO_URI=your_mongodb_url
-JWT_SECRET=your_secret
-```
+PORT=5000  
+MONGO_URI=mongodb://127.0.0.1:27017/taskflow  
+JWT_SECRET=your_secret_key  
 
 Run backend:
 
-```bash
-npm run dev
-```
+npm run dev  
 
 ---
 
-### 3️⃣ Frontend Setup
+### 3. Frontend Setup
 
-```bash
-cd frontend
-npm install
-npm run dev
-```
+cd frontend  
+npm install  
+npm run dev  
 
----
-
-## 📡 Sample API Endpoints
-
-| Method | Endpoint           | Description   |
-| ------ | ------------------ | ------------- |
-| POST   | /api/auth/register | Register user |
-| POST   | /api/auth/login    | Login user    |
-| GET    | /api/tasks         | Get all tasks |
-| POST   | /api/tasks         | Create a task |
+Frontend runs on:  
+http://localhost:5173  
 
 ---
 
-## 🧪 Future Improvements
+## 🔌 API Endpoints
 
-* Add unit and integration testing
-* Dockerize the application
-* CI/CD pipeline setup
-* Real-time updates using WebSockets
+### Auth
 
----
-
-## 📈 Key Learnings
-
-* Built a scalable backend structure
-* Implemented secure authentication system
-* Designed modular frontend architecture
-* Improved performance using pagination and filtering
+POST   /api/v1/auth/register  
+POST   /api/v1/auth/login  
+GET    /api/v1/auth/profile  
 
 ---
 
-## 👨‍💻 Author
+### Tasks
 
-**Shrinidhi Naik**
+POST   /api/v1/tasks  
+GET    /api/v1/tasks  
+GET    /api/v1/tasks/:id  
+PUT    /api/v1/tasks/:id  
+DELETE /api/v1/tasks/:id  
 
-* GitHub: https://github.com/shrinidhinaik23
+---
+
+## 🛡️ Security
+
+- Password hashing (bcrypt)
+- JWT authentication
+- Protected routes
+- Role-based authorization
+- Input validation
+- Secure headers (helmet)
+
+---
+
+## 🧪 Testing
+
+All APIs tested using Postman:
+- Auth flow
+- Protected routes
+- RBAC validation
+- CRUD operations
+
+---
+
+## 📸 Screenshots
+
+![Login](./assets/login.png)  
+![Dashboard](./assets/dashboard.png)  
+![Tasks](./assets/tasks.png)  
+
+---
+
+## 📈 Scalability
+
+- Modular architecture
+- Easy feature expansion
+- API versioning
+
+### Future Improvements
+- Redis caching
+- Rate limiting
+- Docker
+- Microservices
+- CI/CD pipeline
+
+---
+
+## 🎯 Key Learnings
+
+- JWT authentication implementation
+- RBAC using middleware
+- Scalable backend structuring
+- Frontend-backend integration
+- Real-world API design
+
+---
